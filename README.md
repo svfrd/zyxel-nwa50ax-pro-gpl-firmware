@@ -1474,12 +1474,6 @@ CONFIG_ZYXEL_VERSION="V1.09"
 };
 ```
 
-## u-boot config - openwrt 
-
-```
-ethaddr_factory=mtd read mrd $loadaddr 0x0 0x80000 ; setexpr macoffs $loadaddr + 0x1fff8 ; env readmem -b ethaddr $macoffs 0x6 ; setenv ethaddr_factory
-```
-
 ## u-boot env
 
 * with stock u-boot
@@ -1639,4 +1633,14 @@ MT7981>
 
 ```
 MT7981> reset
+```
+
+### WIP
+
+* load mac addr from "mrd"
+
+needs adaption (see dts and nvmem cell)
+
+```
+ethaddr_factory=mtd read mrd $loadaddr 0x0 0x80000 ; setexpr macoffs $loadaddr + 0x1fff8 ; env readmem -b ethaddr $macoffs 0x6 ; setenv ethaddr_factory
 ```
