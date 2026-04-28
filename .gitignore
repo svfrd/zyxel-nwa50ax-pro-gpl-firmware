@@ -1,2 +1,3 @@
 toolchain.tar
 src/
+!src/u-boot
